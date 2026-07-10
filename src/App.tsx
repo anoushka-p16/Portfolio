@@ -6,6 +6,8 @@ import { Button } from "./components/ui/button";
 import { Card } from "./components/ui/card";
 import meImg from "./components/images/me.jpeg";
 import artAnalyzeImg from "./components/images/artanalyze.png";
+import igaImg from "./components/images/iga.png";
+import filmImg from "./components/images/filmy.png";
 import { 
   Github, 
   Linkedin, 
@@ -24,6 +26,7 @@ export default function App() {
     {
       title: "Code for Good - International Girls Academy",
       description: "An engagement platform for the International Girls Academy, enabling 2K+ users to access programs, register for events, and track progress.",
+      image: igaImg,
       tags: ["Retrieval-Augmented Generation (RAG)", "Next.js", "TypeScript", "Supabase"],
       github: "#",
       demo: "#"
@@ -55,7 +58,7 @@ export default function App() {
     {
       title: "FilmFind",
       description: "A social movie platform, enabling users to explore, review, and curate watchlists while receiving ML-powered film recommendations based on their activity.",
-      image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBsYXB0b3B8ZW58MXx8fHwxNzYxMzIxNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: filmImg,
       tags: ["Flask", "RESI API", "React", "SQL"],
       github: "#",
       demo: "#"

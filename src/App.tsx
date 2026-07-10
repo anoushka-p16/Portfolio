@@ -36,6 +36,22 @@ export default function App() {
       demo: "#"
     },
     {
+      title: "PayRisk",
+      description: "A social movie platform, enabling users to explore, review, and curate watchlists while receiving ML-powered film recommendations based on their activity.",
+      image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBsYXB0b3B8ZW58MXx8fHwxNzYxMzIxNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["Python", "XGBoost", "SHAP", "SQL", "Pandas", "NumPy", "Scikit-learn"],
+      github: "#",
+      demo: "#"
+    },
+    {
+      title: "ArtAnalyze",
+      description: "A social movie platform, enabling users to explore, review, and curate watchlists while receiving ML-powered film recommendations based on their activity.",
+      image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBsYXB0b3B8ZW58MXx8fHwxNzYxMzIxNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["Flask", "RESI API", "React", "SQL"],
+      github: "#",
+      demo: "#"
+    },
+    {
       title: "FilmFind",
       description: "A social movie platform, enabling users to explore, review, and curate watchlists while receiving ML-powered film recommendations based on their activity.",
       image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBsYXB0b3B8ZW58MXx8fHwxNzYxMzIxNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -46,6 +62,17 @@ export default function App() {
   ];
 
   const experiences = [
+    {
+      title: "Software Engineering Intern",
+      company: "JPMorgan Chase & Co.",
+      location: "New York, NY",
+      period: "Summer 2026",
+      description: [
+        "Architected a scalable chaos-engineering pipeline to simulate AWS Lambda service failures and measure downstream resilience under production-like traffic (10,000+ requests/minute), focused on DNS/EC2 infrastructure management",
+        "Automated load generation, fault injection, metric analysis, and reporting, cutting manual validation efforts by 70% and enabling frequent resilience testing",
+        "Built a dependency-graph agent to map 100+ AWS resource relationships, predict likely failure paths, and generate high-impact chaos test scenarios, reducing root-cause analysis time by 35x"
+      ]
+    },
     {
       title: "Software Engineering Intern",
       company: "iNovate Solutions",
@@ -73,8 +100,8 @@ export default function App() {
 
   const extracurriculars = [
     {
-      title: "Engineer Mentor",
-      organization: "Women & Minority Engineering Program",
+      title: "Lead Engineer Mentor",
+      organization: "ASCEND Engineering Program",
       period: "2024 - Present",
       description: "Led targeted review sessions across 5+ core engineering courses, achieving a 15% improvement in mentee self-assessed proficiency. Directed technical workshops and outreach initiatives, connecting 200+ students to career resources, research, and STEM pathways."
     },
@@ -94,11 +121,11 @@ export default function App() {
 
   const interests = [
     { icon: "🎨", name: "UI/UX Design", description: "Creating beautiful and intuitive interfaces" },
-    { icon: "📚", name: "Reading", description: "Sci-fi novels and tech blogs" },
-    { icon: "☕", name: "Coffee", description: "Trying new cafes and brewing methods" },
+    { icon: "📚", name: "Reading", description: "Mystery and thriller novels are my favorite" },
+    { icon: "☕", name: "Food", description: "Trying new cuisines and fun foods! Check out my beli." },
     { icon: "🎵", name: "Music", description: "Playing piano and discovering new artists" },
     { icon: "✈️", name: "Travel", description: "Exploring new cities and cultures" },
-    { icon: "🏃‍♀️", name: "Fitness", description: "Yoga, running, and hiking" }
+    { icon: "🏃‍♀️", name: "Fitness", description: "Working out at the gym, staying active" }
   ];
 
   const skills = [

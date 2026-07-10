@@ -5,6 +5,7 @@ import { Badge } from "./components/ui/badge";
 import { Button } from "./components/ui/button";
 import { Card } from "./components/ui/card";
 import meImg from "./components/images/me.jpeg";
+import artAnalyzeImg from "./components/images/artanalyze.png";
 import { 
   Github, 
   Linkedin, 
@@ -37,7 +38,7 @@ export default function App() {
     },
     {
       title: "PayRisk",
-      description: "A social movie platform, enabling users to explore, review, and curate watchlists while receiving ML-powered film recommendations based on their activity.",
+      description: "A fraud-detection model that improves payment-risk flagging accuracy and explains its decisions.",
       image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBsYXB0b3B8ZW58MXx8fHwxNzYxMzIxNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       tags: ["Python", "XGBoost", "SHAP", "SQL", "Pandas", "NumPy", "Scikit-learn"],
       github: "#",
@@ -45,9 +46,9 @@ export default function App() {
     },
     {
       title: "ArtAnalyze",
-      description: "A social movie platform, enabling users to explore, review, and curate watchlists while receiving ML-powered film recommendations based on their activity.",
-      image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBsYXB0b3B8ZW58MXx8fHwxNzYxMzIxNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["Flask", "RESI API", "React", "SQL"],
+      description: "A computer vision + machine learning platform that estimates an artwork's style, difficulty, materials, and time to recreate.",
+      image: artAnalyzeImg,
+      tags: ["Python", "Uvicorn", "OpenCV", "PyTorch", "Pillow"],
       github: "#",
       demo: "#"
     },

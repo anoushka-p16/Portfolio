@@ -17,33 +17,21 @@ import {
   Briefcase, 
   Heart, 
   GraduationCap,
-  Star
+  Star,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
+import { useState } from "react";
 import { motion } from "motion/react";
 
 export default function App() {
+  const [activeProjectGroup, setActiveProjectGroup] = useState(0);
   const projects = [
     {
       title: "Code for Good - International Girls Academy",
       description: "An engagement platform for the International Girls Academy, enabling 2K+ users to access programs, register for events, and track progress.",
       image: igaImg,
       tags: ["Retrieval-Augmented Generation (RAG)", "Next.js", "TypeScript", "Supabase"],
-      github: "#",
-      demo: "#"
-    },
-    {
-      title: "MenteeSync",
-      description: "An automated scheduling system, streamlining coordination for 200+ engineering students.",
-      image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYxMzE4MDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["Google Calendar API", "SMTP", "Python", "Stripe"],
-      github: "#",
-      demo: "#"
-    },
-    {
-      title: "PayRisk",
-      description: "A fraud-detection model that improves payment-risk flagging accuracy and explains its decisions.",
-      image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBsYXB0b3B8ZW58MXx8fHwxNzYxMzIxNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      tags: ["Python", "XGBoost", "SHAP", "SQL", "Pandas", "NumPy", "Scikit-learn"],
       github: "#",
       demo: "#"
     },
@@ -56,10 +44,26 @@ export default function App() {
       demo: "#"
     },
     {
+      title: "PayRisk",
+      description: "A fraud-detection model that improves payment-risk flagging accuracy and explains its decisions.",
+      image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBsYXB0b3B8ZW58MXx8fHwxNzYxMzIxNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["Python", "XGBoost", "SHAP", "SQL", "Pandas", "NumPy", "Scikit-learn"],
+      github: "#",
+      demo: "#"
+    },
+    {
       title: "FilmFind",
       description: "A social movie platform, enabling users to explore, review, and curate watchlists while receiving ML-powered film recommendations based on their activity.",
       image: filmImg,
       tags: ["Flask", "RESI API", "React", "SQL"],
+      github: "#",
+      demo: "#"
+    },
+    {
+      title: "MenteeSync",
+      description: "An automated scheduling system, streamlining coordination for 200+ engineering students.",
+      image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYxMzE4MDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      tags: ["Google Calendar API", "SMTP", "Python", "Stripe"],
       github: "#",
       demo: "#"
     }
@@ -67,8 +71,8 @@ export default function App() {
 
   const experiences = [
     {
-      title: "Software Engineering Intern",
-      company: "JPMorgan Chase & Co.",
+      title: "JPMorgan Chase & Co.",
+      company: "Software Engineering Intern",
       location: "New York, NY",
       period: "Summer 2026",
       description: [
@@ -78,8 +82,8 @@ export default function App() {
       ]
     },
     {
-      title: "Software Engineering Intern",
-      company: "iNovate Solutions",
+      title: "iNovate Solutions",
+      company: "Software Engineering Intern",
       location: "Herndon, VA",
       period: "Summer 2024",
       description: [
@@ -90,8 +94,8 @@ export default function App() {
       ]
     },
     {
-      title: "Machine Learning Researcher",
-      company: "NCSU Research",
+      title: "Machine Learning Research NCSU",
+      company: "NCSU Research Intern",
       location: "Raleigh, NC",
       period: "Oct 2024 - Jul 2025",
       description: [
@@ -124,11 +128,11 @@ export default function App() {
   ];
 
   const interests = [
-    { icon: "🎨", name: "UI/UX Design", description: "Creating beautiful and intuitive interfaces" },
-    { icon: "📚", name: "Reading", description: "Mystery and thriller novels are my favorite" },
-    { icon: "☕", name: "Food", description: "Trying new cuisines and fun foods! Check out my beli." },
+    { icon: "📚", name: "Reading", description: "Mystery and thriller novels are my favorite. I've loved The Silent Patient." },
+    { icon: "☕", name: "Food", description: "Trying new cuisines and fun foods! Check out my beli @anoushka101" },
     { icon: "🎵", name: "Music", description: "Playing piano and discovering new artists" },
-    { icon: "✈️", name: "Travel", description: "Exploring new cities and cultures" },
+    { icon: "✈️", name: "Travel", description: "Exploring new cities and cultures. So far I've been to Mexico, Europe, UAE, India, and England." },
+    { icon: "🎨", name: "Pickleball", description: "Heading to the courts with my friends on a nice warm day" },
     { icon: "🏃‍♀️", name: "Fitness", description: "Working out at the gym, staying active" }
   ];
 
@@ -138,6 +142,16 @@ export default function App() {
     "HTML/CSS", "Tailwind CSS", "SQL", "MongoDB",
     "Git", "Docker", "AWS"
   ];
+
+  const visibleProjects = Array.from({ length: 3 }, (_, index) => projects[(activeProjectGroup + index) % projects.length]);
+
+  const goToPreviousProjects = () => {
+    setActiveProjectGroup((current) => (current - 1 + projects.length) % projects.length);
+  };
+
+  const goToNextProjects = () => {
+    setActiveProjectGroup((current) => (current + 1) % projects.length);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#020617] via-black to-[#02010a] text-foreground relative overflow-hidden">
@@ -167,7 +181,7 @@ export default function App() {
               </span>
             </motion.div>
             <div className="flex gap-6">
-              {["About", "Projects", "Experience", "Contact"].map((item, i) => (
+              {["About", "Experience", "Education", "Projects", "Skills", "Contact"].map((item, i) => (
                 <motion.a 
                   key={item}
                   href={`#${item.toLowerCase()}`} 
@@ -251,8 +265,8 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                A passionate CS major with a love for building beautiful, functional web applications. 
-                I turn ideas into reality through code, design, and a sprinkle of creativity
+                A passionate CS major with a love for problem-solving, cool technology, and 
+                building creative solutions that work end to end.
               </motion.p>
               
               <motion.div 
@@ -262,28 +276,34 @@ export default function App() {
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-5">
-                    <Mail className="w-4 h-4 mr-2" />
-                    Get in Touch
-                  </Button>
+                  <a href="mailto:anoushka.piduru@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-5">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Get in Touch
+                    </Button>
+                  </a>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button 
-                    variant="outline" 
-                    className="rounded-full border border-border/70 bg-transparent hover:border-primary hover:text-primary"
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    GitHub
-                  </Button>
+                  <a href="https://github.com/anoushka-p16" target="_blank" rel="noopener noreferrer">
+                    <Button 
+                      variant="outline" 
+                      className="rounded-full border border-border/70 bg-transparent hover:border-primary hover:text-primary"
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      GitHub
+                    </Button>
+                  </a>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button 
-                    variant="outline" 
-                    className="rounded-full border border-border/70 bg-transparent hover:border-primary hover:text-primary"
-                  >
-                    <Linkedin className="w-4 h-4 mr-2" />
-                    LinkedIn
-                  </Button>
+                  <a href="https://linkedin.com/in/anoushka-piduru" target="_blank" rel="noopener noreferrer">
+                    <Button 
+                      variant="outline" 
+                      className="rounded-full border border-border/70 bg-transparent hover:border-primary hover:text-primary"
+                    >
+                      <Linkedin className="w-4 h-4 mr-2" />
+                      LinkedIn
+                    </Button>
+                  </a>
                 </motion.div>
               </motion.div>
             </div>
@@ -351,72 +371,19 @@ export default function App() {
             >
               <Card className="p-8 bg-[#05010f]/90 backdrop-blur-lg border border-border/60 shadow-xl">
                 <p className="text-lg text-muted-foreground mb-6">
-                  I'm a Computer Science major with a passion for creating technology that makes an impact. 
-                  Whether it's designing intuitive user interfaces or solving complex problems, 
-                  I love the challenge of bringing ideas to life through code.
+                  I almost went into medicine. What actually hooked me was the diagnosing part. The pattern-finding, 
+                  not the prescribing. That's basically what pulled me into software: trying to figure out why something 
+                  works, not just that it does. Outside of computer science, I love to dance, paint, and play pickleball (badly, but happily). Turns out
+                  precision, timing, and creativity show up in weirder places than you'd think!
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  When I'm not coding, you can find me traveling, reading thriller novels, 
-                  or working on personal projects that combine my interests in design and development.
+                  I'm most alive when I'm mid-way through figuring something out. Whether it's a bug, a
+                  brushstroke, or a piece of choreography or sheet music, chasing it until it finally clicks. That's 
+                  what I hope to bring wherever I go.
                 </p>
               </Card>
             </motion.div>
 
-            {/* Skills */}
-            <div>
-              <motion.div 
-                className="flex items-center gap-2 mb-6"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.5 }}
-              >
-                <Code2 className="w-5 h-5 text-primary" />
-                <h3 className="text-foreground text-lg font-semibold">Technical Skills</h3>
-              </motion.div>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill, i) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false }}
-                    transition={{ delay: i * 0.05, duration: 0.3 }}
-                    whileHover={{ scale: 1.1, rotate: 2 }}
-                  >
-                    <Badge 
-                      variant="secondary" 
-                      className="px-4 py-2 bg-pink-500/10 backdrop-blur-md border border-primary/40 hover:bg-primary hover:text-primary-foreground transition-all cursor-default rounded-full text-sm"
-                    >
-                      {skill}
-                    </Badge>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 relative z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="flex items-center gap-3 mb-12"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.5 }}
-          >
-            <Code2 className="w-6 h-6 text-primary" />
-            <h2 className="text-foreground text-xl font-semibold tracking-wide">
-              Featured Projects
-            </h2>
-          </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <AnimatedProjectCard key={project.title} {...project} index={index} />
-            ))}
           </div>
         </div>
       </section>
@@ -444,8 +411,126 @@ export default function App() {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section id="education" className="py-20 bg-[#05010f]/80 backdrop-blur-lg border-t border-border/60 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="flex items-center gap-3 mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+          >
+            <GraduationCap className="w-6 h-6 text-primary" />
+            <h2 className="text-foreground text-xl font-semibold tracking-wide">
+              Education
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="rounded-3xl border border-border/60 bg-[#05010f]/90 p-8 shadow-xl">
+              <p className="text-sm uppercase tracking-[0.3em] text-primary mb-3">North Carolina State University • Raleigh, NC</p>
+              <h3 className="text-3xl font-semibold text-foreground mb-4">Bachelor of Science in Computer Science</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Studying Computer Science with a focus on scalable systems, machine learning, and software engineering. I combine technical coursework with real-world internships to build practical and creative solutions.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-sm text-primary">GPA: 3.9 / 4.0</span>
+                <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-sm text-primary">Dean&apos;s List</span>
+                <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-sm text-primary">Aug 2023 - May 2027</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="projects" className="py-20 bg-[#05010f]/80 backdrop-blur-lg border-t border-border/60 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="flex items-center gap-3 mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+          >
+            <Code2 className="w-6 h-6 text-primary" />
+            <h2 className="text-foreground text-xl font-semibold tracking-wide">
+              Featured Projects
+            </h2>
+          </motion.div>
+          <div className="flex items-center justify-end gap-2 mb-6">
+            <button
+              type="button"
+              onClick={goToPreviousProjects}
+              className="rounded-full border border-border/70 bg-background/70 p-2 text-foreground transition hover:border-primary hover:text-primary"
+              aria-label="Show previous projects"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={goToNextProjects}
+              className="rounded-full border border-border/70 bg-background/70 p-2 text-foreground transition hover:border-primary hover:text-primary"
+              aria-label="Show next projects"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+          <div className="flex gap-6 overflow-hidden">
+            {visibleProjects.map((project, index) => (
+              <div key={project.title} className="w-full md:w-[calc(33.333%-1rem)] flex-shrink-0">
+                <AnimatedProjectCard {...project} index={index} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="flex items-center gap-3 mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+          >
+            <Code2 className="w-6 h-6 text-primary" />
+            <h2 className="text-foreground text-xl font-semibold tracking-wide">
+              Skills
+            </h2>
+          </motion.div>
+          <div className="flex flex-wrap gap-2">
+            {skills.map((skill, i) => (
+              <motion.div
+                key={skill}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false }}
+                transition={{ delay: i * 0.05, duration: 0.3 }}
+                whileHover={{ scale: 1.1, rotate: 2 }}
+              >
+                <Badge 
+                  variant="secondary" 
+                  className="px-4 py-2 bg-pink-500/10 backdrop-blur-md border border-primary/40 hover:bg-primary hover:text-primary-foreground transition-all cursor-default rounded-full text-sm"
+                >
+                  {skill}
+                </Badge>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Extracurriculars Section */}
-      <section className="py-20 relative z-10">
+      <section className="py-20 bg-[#05010f]/80 backdrop-blur-lg border-t border-border/60 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="flex items-center gap-3 mb-12"
@@ -571,30 +656,36 @@ export default function App() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6">
-                <Mail className="w-5 h-5 mr-2" />
-                anoushka.piduru@gmail.com
-              </Button>
+              <a href="mailto:anoushka.piduru@gmail.com" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6">
+                  <Mail className="w-5 h-5 mr-2" />
+                  anoushka.piduru@gmail.com
+                </Button>
+              </a>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="rounded-full border border-border/70 bg-transparent hover:border-primary hover:text-primary"
-              >
-                <Github className="w-5 h-5 mr-2" />
-                anoushka-p16
-              </Button>
+              <a href="https://github.com/anoushka-p16" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="rounded-full border border-border/70 bg-transparent hover:border-primary hover:text-primary"
+                >
+                  <Github className="w-5 h-5 mr-2" />
+                  anoushka-p16
+                </Button>
+              </a>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="rounded-full border border-border/70 bg-transparent hover:border-primary hover:text-primary"
-              >
-                <Linkedin className="w-5 h-5 mr-2" />
-                https://www.linkedin.com/in/anoushka-piduru/
-              </Button>
+              <a href="https://linkedin.com/in/anoushka-piduru" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="rounded-full border border-border/70 bg-transparent hover:border-primary hover:text-primary"
+                >
+                  <Linkedin className="w-5 h-5 mr-2" />
+                  https://www.linkedin.com/in/anoushka-piduru/
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
